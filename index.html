@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canciones Románticas - Conciertos</title>
+    <style>
+        /* Estilos generales y variables */
+        :root {
+            --bg-color: #0f111a;
+            --card-bg: #1a1d29;
+            --text-color: #f1f1f1;
+            --text-muted: #a0a5bc;
+            --accent-color: #ff3366;
+            --accent-hover: #ff1a53;
+            --header-bg: rgba(26, 29, 41, 0.8);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Encabezado Principal */
+        header {
+            background-color: var(--header-bg);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 2rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        header a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.95rem;
+            padding: 6px 14px;
+            border-radius: 20px;
+            background-color: rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        header a:hover {
+            background-color: var(--accent-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Contenido Principal */
+        main {
+            max-width: 1000px;
+            width: 90%;
+            margin: 2rem auto;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .concert-card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .concert-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .concert-card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-color);
+            border-left: 4px solid var(--accent-color);
+            padding-left: 10px;
+        }
+
+        .card-content {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 768px) {
+            .card-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .concert-card h2 {
+                border-left: none;
+                padding-left: 0;
+            }
+        }
+
+        .image-container img {
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            transition: opacity 0.3s ease;
+        }
+
+        .image-container img:hover {
+            opacity: 0.85;
+        }
+
+        .info-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .info-container h3 {
+            font-size: 1.4rem;
+            text-transform: capitalize;
+            color: var(--text-color);
+        }
+
+        .info-container p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 768px) {
+            .button-group {
+                justify-content: center;
+            }
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+        }
+
+        .btn:active {
+            transform: scale(0.97);
+        }
+
+        .btn-secondary {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--text-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* Pie de página */
+        footer {
+            background-color: var(--card-bg);
+            text-align: center;
+            padding: 1.5rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: auto;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Canciones Románticas</h1>
+        <nav class="nav-links">
+            <a href="#rauw">Rauw Alejandro</a>
+            <a href="#maria">María Becerra</a>
+            <a href="#jay">Jay Wheeler</a>
+            <a href="#carla">Carla Morrison</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Sección Rauw Alejandro -->
+        <section class="concert-card" id="rauw">
+            <h2>Rauw Alejandro Festival</h2>
+            <div class="card-content">
+                <div class="image-container">
+                    <a href="https://youtu.be/bumSM2ZcmRo?list=RDbumSM2ZcmRo&t=8" target="_blank">
+                        <img src="https://th.bing.com/th/id/OIP.YBTdGGQyhBPFsaEjNrqVUAHaHa?w=159&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="Rauw Alejandro">
+                    </a>
+                </div>
+                <div class="info-container">
+                    <h3>Rauw Alejandro</h3>
+                    <p><strong>"Amar de Nuevo"</strong> trata sobre volver a enamorarse después de haber pasado por una relación o una decepción amorosa. Habla de abrirse de nuevo al amor, aunque todavía existan recuerdos y miedos del pasado.</p>
+                    <div class="button-group">
+                        <button class="btn btn-secondary">Ver detalles</button>
+                        <button class="btn btn-primary">Comprar entradas</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección María Becerra -->
+        <section class="concert-card" id="maria">
+            <h2>María Becerra Gira por España</h2>
+            <div class="card-content">
+                <div class="image-container">
+                    <a href="https://www.youtube.com/watch?v=eezXVV7SgzI" target="_blank">
+                        <img src="https://i.ytimg.com/vi/eezXVV7SgzI/hq720.jpg" alt="María Becerra">
+                    </a>
+                </div>
+                <div class="info-container">
+                    <h3>María Becerra</h3>
+                    <p>Trata sobre la pasión, la atracción y lo que una persona siente cuando comparte momentos íntimos con alguien que le gusta mucho.</p>
+                    <div class="button-group">
+                        <button class="btn btn-secondary">Ver info</button>
+                        <button class="btn btn-primary">Comprar entrada</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Jay Wheeler -->
+        <section class="concert-card" id="jay">
+            <h2>Jay Wheeler Concierto</h2>
+            <div class="card-content">
+                <div class="image-container">
+                    <a href="https://www.youtube.com/watch?v=Q_gIYp078so" target="_blank">
+                        <img src="https://i.ytimg.com/vi/Q_gIYp078so/hq720.jpg" alt="Jay Wheeler">
+                    </a>
+                </div>
+                <div class="info-container">
+                    <h3>Jay Wheeler</h3>
+                    <p>Es una canción sobre querer acercarse a alguien porque existe mucha atracción y curiosidad por lo que podría pasar entre ambos.</p>
+                    <div class="button-group">
+                        <button class="btn btn-secondary">Ver info</button>
+                        <button class="btn btn-primary">Comprar entrada</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Carla Morrison -->
+        <section class="concert-card" id="carla">
+            <h2>Carla Morrison Concierto</h2>
+            <div class="card-content">
+                <div class="image-container">
+                    <a href="https://www.youtube.com/watch?v=ljArIjz_W3Q" target="_blank">
+                        <img src="https://i.ytimg.com/vi/ljArIjz_W3Q/hq720.jpg" alt="Carla Morrison">
+                    </a>
+                </div>
+                <div class="info-container">
+                    <h3>Carla Morrison</h3>
+                    <p>Habla de encontrar a alguien entre mucha gente que te hace sentir que era la persona que querías encontrar.</p>
+                    <div class="button-group">
+                        <button class="btn btn-secondary">Ver info</button>
+                        <button class="btn btn-primary">Comprar entrada</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>PÁGINA DISEÑADA POR DÍAZ Y GARRO</p>
+    </footer>
+
+</body>
+</html>
